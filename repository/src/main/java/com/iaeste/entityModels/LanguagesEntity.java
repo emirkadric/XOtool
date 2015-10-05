@@ -14,7 +14,6 @@ public class LanguagesEntity implements Serializable {
     private int pkLanguageId;
     private String name;
     private String langshort;
-    private Collection<StudentsLanguagesEntity> studentsLanguagesByPkLanguageId;
 
     @Id
     @Column(name = "pk_language_id", nullable = false, insertable = true, updatable = true)
@@ -68,12 +67,5 @@ public class LanguagesEntity implements Serializable {
         return result;
     }
 
-    @OneToMany(mappedBy = "languagesByFkLanguageId")
-    public Collection<StudentsLanguagesEntity> getStudentsLanguagesByPkLanguageId() {
-        return studentsLanguagesByPkLanguageId;
-    }
 
-    public void setStudentsLanguagesByPkLanguageId(Collection<StudentsLanguagesEntity> studentsLanguagesByPkLanguageId) {
-        this.studentsLanguagesByPkLanguageId = studentsLanguagesByPkLanguageId;
-    }
 }

@@ -39,38 +39,7 @@ public class StudentsEntity implements Serializable {
     private PrevEmploymentsEntity fkPrevEmploymentId;
     private AdminsEntity fkUpdatedByAdmin;
     private CountriesEntity fkCountryId;
-
-    public void setFkRlcId(RespLocalCommitteeEntity fkRlcId) {
-        this.fkRlcId = fkRlcId;
-    }
-
-    public void setFkEmergencyContactId(EmergencyContactsEntity fkEmergencyContactId) {
-        this.fkEmergencyContactId = fkEmergencyContactId;
-    }
-
-    public void setFkMembershipStatus(MembershipStatusesEntity fkMembershipStatus) {
-        this.fkMembershipStatus = fkMembershipStatus;
-    }
-
-    public void setFkNativeLanguage(LanguagesEntity fkNativeLanguage) {
-        this.fkNativeLanguage = fkNativeLanguage;
-    }
-
-    public void setFkEducationId(EducationsEntity fkEducationId) {
-        this.fkEducationId = fkEducationId;
-    }
-
-    public void setFkPrevEmploymentId(PrevEmploymentsEntity fkPrevEmploymentId) {
-        this.fkPrevEmploymentId = fkPrevEmploymentId;
-    }
-
-    public void setFkUpdatedByAdmin(AdminsEntity fkUpdatedByAdmin) {
-        this.fkUpdatedByAdmin = fkUpdatedByAdmin;
-    }
-
-    public void setFkCountryId(CountriesEntity fkCountryId) {
-        this.fkCountryId = fkCountryId;
-    }
+    private List<LanguagesEntity> studentLanguages;
 
     @Id
     @Column(name = "student_id_pk", nullable = false, insertable = true, updatable = true)
@@ -259,12 +228,19 @@ public class StudentsEntity implements Serializable {
         return fkRlcId;
     }
 
+    public void setFkRlcId(RespLocalCommitteeEntity fkRlcId) {
+        this.fkRlcId = fkRlcId;
+    }
 
     @ManyToOne
     @Column(name = "fk_emergency_contact_id", nullable = false, insertable = true, updatable = true)
     @JoinColumn(name = "fk_emergency_contact_id", referencedColumnName = "pk_emergency_contact_id", nullable = false)
     public EmergencyContactsEntity getFkEmergencyContactId() {
         return fkEmergencyContactId;
+    }
+
+    public void setFkEmergencyContactId(EmergencyContactsEntity fkEmergencyContactId) {
+        this.fkEmergencyContactId = fkEmergencyContactId;
     }
 
     @ManyToOne
@@ -274,11 +250,19 @@ public class StudentsEntity implements Serializable {
         return fkMembershipStatus;
     }
 
+    public void setFkMembershipStatus(MembershipStatusesEntity fkMembershipStatus) {
+        this.fkMembershipStatus = fkMembershipStatus;
+    }
+
     @OneToOne
     @Column(name = "fk_native_language", nullable = false, insertable = true, updatable = true)
     @JoinColumn(name = "fk_native_language", referencedColumnName = "pk_language_id", nullable = false)
     public LanguagesEntity getFkNativeLanguage() {
         return fkNativeLanguage;
+    }
+
+    public void setFkNativeLanguage(LanguagesEntity fkNativeLanguage) {
+        this.fkNativeLanguage = fkNativeLanguage;
     }
 
     @ManyToOne
@@ -288,6 +272,9 @@ public class StudentsEntity implements Serializable {
         return fkEducationId;
     }
 
+    public void setFkEducationId(EducationsEntity fkEducationId) {
+        this.fkEducationId = fkEducationId;
+    }
 
     @ManyToOne
     @Column(name = "fk_prev_employment_id", nullable = false, insertable = true, updatable = true)
@@ -296,6 +283,9 @@ public class StudentsEntity implements Serializable {
         return fkPrevEmploymentId;
     }
 
+    public void setFkPrevEmploymentId(PrevEmploymentsEntity fkPrevEmploymentId) {
+        this.fkPrevEmploymentId = fkPrevEmploymentId;
+    }
 
     @ManyToOne
     @Column(name = "fk_updated_by_admin", nullable = false, insertable = true, updatable = true)
@@ -304,6 +294,21 @@ public class StudentsEntity implements Serializable {
         return fkUpdatedByAdmin;
     }
 
+    public void setFkUpdatedByAdmin(AdminsEntity fkUpdatedByAdmin) {
+        this.fkUpdatedByAdmin = fkUpdatedByAdmin;
+    }
+
+    @ManyToMany
+    @JoinTable(name="students_languages", joinColumns = @JoinColumn(name = "fk_student_id"), inverseJoinColumns = @JoinColumn(name = "fk_language_id"))
+    public List<LanguagesEntity> getStudentLanguages()
+    {
+        return studentLanguages;
+    }
+
+    public void setStudentLanguages(List<LanguagesEntity> langs)
+    {
+        this.studentLanguages = langs;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -370,6 +375,10 @@ public class StudentsEntity implements Serializable {
     @JoinColumn(name = "fk_country_id", referencedColumnName = "pk_country_id", nullable = false)
     public CountriesEntity getFkCountryId() {
         return fkCountryId;
+    }
+
+    public void setFkCountryId(CountriesEntity fkCountryId) {
+        this.fkCountryId = fkCountryId;
     }
 
 }
