@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - iaeste_test@localhost" uuid="bbe6fa6b-5e01-43ce-a34e-1a49a64b9dd8">
+    <database-info product="MySQL" version="5.6.20" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="iaeste_test"/>
+    <table name="accommodations" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_accomm_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="provider" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cost" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_pay_frequency_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="pk_accomm_id"/>
+      <foreign-key name="accommodations_ibfk_1" columns="fk_pay_frequency_id" ref-table="pay_frequencies" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_pf_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="jobs_ibfk_5" table="jobs" schema="" catalog="iaeste_test" columns="fk_accommodation_id"/>
+    </table>
+    <table name="admins" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_admin_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="firstname" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastname" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fk_rlc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="username" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="token" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pk_admin_id"/>
+      <foreign-key name="admins_ibfk_1" columns="fk_rlc_id" ref-table="resp_local_committee" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_rlc_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_student_admin" table="students" schema="" catalog="iaeste_test" columns="fk_updated_by_admin"/>
+      <index name="lc" unique="false" columns="fk_rlc_id"/>
+    </table>
+    <table name="countries" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_country_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="country_code" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="country_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="pk_country_id"/>
+      <exported-key name="emergency_contacts_ibfk_1" table="emergency_contacts" schema="" catalog="iaeste_test" columns="fk_country_id"/>
+      <exported-key name="employers_ibfk_2" table="employers" schema="" catalog="iaeste_test" columns="fk_country_id"/>
+      <exported-key name="FK_student_country" table="students" schema="" catalog="iaeste_test" columns="fk_country_id"/>
+    </table>
+    <table name="educations" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_edu_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fk_study_level" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="university" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="study_field" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="ENUM" precision="9" scale="0" nullable="false" jdbcType="1"/>
+      <column name="study_code" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="start_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="expected_finish_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="completed_ects" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="total_ects" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="comment" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="transcript" sqlType="MEDIUMBLOB" precision="16777215" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="confirmation_enrollment" sqlType="MEDIUMBLOB" precision="16777215" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="study_plan" sqlType="MEDIUMBLOB" precision="16777215" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="awards" sqlType="MEDIUMBLOB" precision="16777215" scale="0" nullable="false" jdbcType="-4"/>
+      <primary-key name="PRIMARY" columns="pk_edu_id"/>
+      <foreign-key name="educations_ibfk_1" columns="fk_study_level" ref-table="study_levels" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_sl_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_student_edu" table="students" schema="" catalog="iaeste_test" columns="fk_education_id"/>
+    </table>
+    <table name="emergency_contacts" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_emergency_contact_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fk_country_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="firstname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="75" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="city" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="zip" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="address" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pk_emergency_contact_id"/>
+      <foreign-key name="emergency_contacts_ibfk_1" columns="fk_country_id" ref-table="countries" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_country_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_student_emercontact" table="students" schema="" catalog="iaeste_test" columns="fk_emergency_contact_id"/>
+    </table>
+    <table name="employers" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_employer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="zip" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="address" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="website" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="contact_person" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fk_rlc" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_country_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="pk_employer_id"/>
+      <foreign-key name="employers_ibfk_1" columns="fk_rlc" ref-table="resp_local_committee" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_rlc_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="employers_ibfk_2" columns="fk_country_id" ref-table="countries" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_country_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="jobs_ibfk_1" table="jobs" schema="" catalog="iaeste_test" columns="fk_employer_id"/>
+      <index name="fk_country_id_2" unique="false" columns="fk_country_id"/>
+      <index name="fk_rlc_2" unique="false" columns="fk_rlc"/>
+    </table>
+    <table name="job_contacts" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_jc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="firstname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="position" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pk_jc_id"/>
+      <exported-key name="jobs_ibfk_3" table="jobs" schema="" catalog="iaeste_test" columns="fk_jobcontact_id"/>
+    </table>
+    <table name="job_statuses" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_jstatuses_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="status" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pk_jstatuses_id"/>
+      <exported-key name="jobs_ibfk_6" table="jobs" schema="" catalog="iaeste_test" columns="fk_jobstatus_id"/>
+    </table>
+    <table name="jobs" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_jobs_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ref_no" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="deadline" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="public_comment" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="internal_comment" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="working_hours" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="description" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="start_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="end_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="living_cost" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_employer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_student_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_jobcontact_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_payment_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_accommodation_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_jobstatus_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="pk_jobs_id"/>
+      <foreign-key name="jobs_ibfk_1" columns="fk_employer_id" ref-table="employers" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_employer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="jobs_ibfk_3" columns="fk_jobcontact_id" ref-table="job_contacts" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_jc_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="jobs_ibfk_4" columns="fk_payment_id" ref-table="payments" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_payment_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="jobs_ibfk_5" columns="fk_accommodation_id" ref-table="accommodations" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_accomm_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="jobs_ibfk_6" columns="fk_jobstatus_id" ref-table="job_statuses" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_jstatuses_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_student_id" unique="false" columns="fk_student_id"/>
+    </table>
+    <table name="languages" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_language_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="langshort" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="pk_language_id"/>
+      <exported-key name="FK_student_language" table="students" schema="" catalog="iaeste_test" columns="fk_native_language"/>
+      <exported-key name="students_languages_ibfk_2" table="students_languages" schema="" catalog="iaeste_test" columns="fk_language_id"/>
+    </table>
+    <table name="membership_statuses" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_mb_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="status" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pk_mb_id"/>
+      <exported-key name="FK_student_membership" table="students" schema="" catalog="iaeste_test" columns="fk_membership_status"/>
+    </table>
+    <table name="pay_frequencies" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_pf_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="status" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pk_pf_id"/>
+      <exported-key name="accommodations_ibfk_1" table="accommodations" schema="" catalog="iaeste_test" columns="fk_pay_frequency_id"/>
+    </table>
+    <table name="payments" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_payment_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="currency" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="payment_freq" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="deduction" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pk_payment_id"/>
+      <exported-key name="jobs_ibfk_4" table="jobs" schema="" catalog="iaeste_test" columns="fk_payment_id"/>
+    </table>
+    <table name="prev_employments" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_pe_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="from_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="to_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="description" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="certificate" sqlType="MEDIUMBLOB" precision="16777215" scale="0" nullable="false" jdbcType="-4"/>
+      <primary-key name="PRIMARY" columns="pk_pe_id"/>
+      <exported-key name="FK_student_prevemploy" table="students" schema="" catalog="iaeste_test" columns="fk_prev_employment_id"/>
+    </table>
+    <table name="resp_local_committee" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_rlc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="lc" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pk_rlc_id"/>
+      <exported-key name="admins_ibfk_1" table="admins" schema="" catalog="iaeste_test" columns="fk_rlc_id"/>
+      <exported-key name="employers_ibfk_1" table="employers" schema="" catalog="iaeste_test" columns="fk_rlc"/>
+      <exported-key name="FK_student_localcommittee" table="students" schema="" catalog="iaeste_test" columns="fk_rlc_id"/>
+    </table>
+    <table name="students" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="student_id_pk" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="firstname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lastname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="sex" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DOB" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="nationality" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="faculty" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="zip" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="address" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="VARCHAR" precision="70" scale="0" nullable="false" jdbcType="12"/>
+      <column name="total_years" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="completed_years" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="change_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="passport" sqlType="MEDIUMBLOB" precision="16777215" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="cv" sqlType="MEDIUMBLOB" precision="16777215" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="lang_certificate" sqlType="MEDIUMBLOB" precision="16777215" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="fk_rlc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_country_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_emergency_contact_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_membership_status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_native_language" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_education_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_prev_employment_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_updated_by_admin" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="student_id_pk"/>
+      <foreign-key name="FK_student_admin" columns="fk_updated_by_admin" ref-table="admins" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_admin_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_student_country" columns="fk_country_id" ref-table="countries" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_country_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_student_edu" columns="fk_education_id" ref-table="educations" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_edu_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_student_emercontact" columns="fk_emergency_contact_id" ref-table="emergency_contacts" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_emergency_contact_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_student_language" columns="fk_native_language" ref-table="languages" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_language_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_student_localcommittee" columns="fk_rlc_id" ref-table="resp_local_committee" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_rlc_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_student_membership" columns="fk_membership_status" ref-table="membership_statuses" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_mb_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_student_prevemploy" columns="fk_prev_employment_id" ref-table="prev_employments" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_pe_id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="students_languages" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_stulangs_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fk_student_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fk_language_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="pk_stulangs_id"/>
+      <foreign-key name="students_languages_ibfk_2" columns="fk_language_id" ref-table="languages" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_language_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_student_id" unique="false" columns="fk_student_id"/>
+    </table>
+    <table name="study_levels" schema="" catalog="iaeste_test" type="TABLE">
+      <column name="pk_sl_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pk_sl_id"/>
+      <exported-key name="educations_ibfk_1" table="educations" schema="" catalog="iaeste_test" columns="fk_study_level"/>
+    </table>
+  </data-source>
+</component>

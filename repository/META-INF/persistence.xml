@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="persistenceUnit">
+
+        <class>com.iaeste.entityModels.AccommodationsEntity</class>
+        <class>com.iaeste.entityModels.AdminsEntity</class>
+        <class>com.iaeste.entityModels.CountriesEntity</class>
+        <class>com.iaeste.entityModels.EducationsEntity</class>
+        <class>com.iaeste.entityModels.EmergencyContactsEntity</class>
+        <class>com.iaeste.entityModels.EmployersEntity</class>
+        <class>com.iaeste.entityModels.JobContactsEntity</class>
+        <class>com.iaeste.entityModels.JobStatusesEntity</class>
+        <class>com.iaeste.entityModels.JobsEntity</class>
+        <class>com.iaeste.entityModels.LanguagesEntity</class>
+        <class>com.iaeste.entityModels.MembershipStatusesEntity</class>
+        <class>com.iaeste.entityModels.PayFrequenciesEntity</class>
+        <class>com.iaeste.entityModels.PaymentsEntity</class>
+        <class>com.iaeste.entityModels.PrevEmploymentsEntity</class>
+        <class>com.iaeste.entityModels.RespLocalCommitteeEntity</class>
+        <class>com.iaeste.entityModels.StudentsLanguagesEntity</class>
+        <class>com.iaeste.entityModels.StudyLevelsEntity</class>
+        <class>com.iaeste.entityModels.StudentsEntity</class>
+        <properties>
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/iaeste_test"/>
+            <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="eclipselink.jdbc.user" value="root"/>
+            <property name="eclipselink.jdbc.password"value=""/>
+        </properties>
+    </persistence-unit>
+</persistence>
