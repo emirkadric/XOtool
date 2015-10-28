@@ -1,4 +1,6 @@
+import com.iaeste.StudentService;
 import com.iaeste.entityModels.StudentsEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StudentController {
 
+    @Autowired
+    StudentService studentService;
+
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    public StudentsEntity addStudent(StudentsEntity studentsEntity) throws MissingServletRequestParameterException
-    {
+    public StudentsEntity addStudent(StudentsEntity studentsEntity) throws MissingServletRequestParameterException {
         StudentsEntity se = studentService.addNewStudent(studentsEntity);
 
         return se;

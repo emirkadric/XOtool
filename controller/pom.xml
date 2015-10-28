@@ -16,8 +16,16 @@
             <artifactId>spring-web</artifactId>
             <version>4.1.2.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.iaeste</groupId>
+            <artifactId>repository</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.iaeste</groupId>
+            <artifactId>service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
-
-
 
 </project>

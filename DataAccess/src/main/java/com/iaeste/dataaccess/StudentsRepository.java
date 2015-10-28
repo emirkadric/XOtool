@@ -1,3 +1,5 @@
+package com.iaeste.dataaccess;
+
 import com.iaeste.entityModels.StudentsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
