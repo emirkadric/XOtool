@@ -24,6 +24,7 @@
         <processorPath useClasspath="true" />
         <module name="com.iaeste.repo" />
         <module name="controller" />
+        <module name="DataAccess" />
         <module name="repo" />
         <module name="repository" />
         <module name="service" />
@@ -32,6 +33,7 @@
     <bytecodeTargetLevel>
       <module name="com.iaeste.repo" target="1.8" />
       <module name="controller" target="1.8" />
+      <module name="DataAccess" target="1.8" />
       <module name="repo" target="1.8" />
       <module name="repository" target="1.8" />
       <module name="service" target="1.8" />

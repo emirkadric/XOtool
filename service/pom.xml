@@ -11,5 +11,16 @@
 
     <artifactId>service</artifactId>
 
-
+<dependencies>
+    <dependency>
+        <groupId>com.iaeste</groupId>
+        <artifactId>dataaccess</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.iaeste</groupId>
+        <artifactId>repository</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+</dependencies>
 </project>

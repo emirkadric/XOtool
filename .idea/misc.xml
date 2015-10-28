@@ -50,15 +50,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/com.iaeste.controller/pom.xml" />
-        <option value="$PROJECT_DIR$/com.iaeste.repo/pom.xml" />
-        <option value="$PROJECT_DIR$/controller/pom.xml" />
-        <option value="$PROJECT_DIR$/repo/pom.xml" />
-        <option value="$PROJECT_DIR$/repository/pom.xml" />
-      </set>
-    </option>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />

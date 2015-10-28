@@ -207,6 +207,9 @@
       <column name="fk_education_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="fk_prev_employment_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="fk_updated_by_admin" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="token" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="username" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="student_id_pk"/>
       <foreign-key name="FK_student_admin" columns="fk_updated_by_admin" ref-table="admins" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_admin_id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_student_country" columns="fk_country_id" ref-table="countries" ref-schema="" ref-catalog="iaeste_test" ref-columns="pk_country_id" update-rule="3" delete-rule="3" deferrability="2"/>

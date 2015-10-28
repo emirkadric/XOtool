@@ -40,6 +40,9 @@ public class StudentsEntity implements Serializable {
     private AdminsEntity fkUpdatedByAdmin;
     private CountriesEntity fkCountryId;
     private List<LanguagesEntity> studentLanguages;
+    private String username;
+    private String password;
+    private String token;
 
     @Id
     @Column(name = "student_id_pk", nullable = false, insertable = true, updatable = true)
@@ -381,4 +384,33 @@ public class StudentsEntity implements Serializable {
         this.fkCountryId = fkCountryId;
     }
 
+    @Basic
+    @Column(name = "username", nullable = false, insertable = true, updatable = true, length = 50)
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Basic
+    @Column(name = "password", nullable = false, insertable = true, updatable = true, length = 64)
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Basic
+    @Column(name = "token", nullable = false, insertable = true, updatable = true, length = 64)
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

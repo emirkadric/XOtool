@@ -10,7 +10,7 @@
 		<module>controller</module>
 		<module>service</module>
 		<module>repository</module>
-		<module>repository</module>
+		<module>DataAccess</module>
 	</modules>
 	<packaging>pom</packaging>
 
