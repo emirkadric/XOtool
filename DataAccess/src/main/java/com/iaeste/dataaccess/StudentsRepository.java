@@ -17,6 +17,8 @@ public interface StudentsRepository extends JpaRepository<StudentsEntity,Integer
                   @Param("username") String username);
 
 
+    @Query("UPDATE StudentsEntity se SET se.token=NULL WHERE se.token= :token")
+    void deleteToken(@Param("token") String token);
 
     StudentsEntity findByToken(String token);
 

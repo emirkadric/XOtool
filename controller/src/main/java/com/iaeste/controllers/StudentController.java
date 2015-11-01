@@ -1,3 +1,5 @@
+package com.iaeste.controllers;
+
 import com.iaeste.StudentService;
 import com.iaeste.entityModels.StudentsEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,12 @@ public class StudentController {
 
     @Autowired
     StudentService studentService;
+
+    @RequestMapping("/")
+    public String greeting()
+    {
+        return "HELLO THERE";
+    }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
