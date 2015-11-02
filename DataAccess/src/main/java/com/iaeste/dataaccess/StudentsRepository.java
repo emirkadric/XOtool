@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 /**
  * Created by emirk on 19/10/2015.
  */
+
 public interface StudentsRepository extends JpaRepository<StudentsEntity,Integer > {
 
     @Modifying

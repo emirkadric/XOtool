@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentController {
 
     @Autowired
-    StudentService studentService;
+    private StudentService studentService;
 
-    @RequestMapping("/")
+    @RequestMapping("/greet")
     public String greeting()
     {
         return "HELLO THERE";
