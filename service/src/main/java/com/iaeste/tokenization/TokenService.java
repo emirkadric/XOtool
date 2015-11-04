@@ -5,6 +5,7 @@ import com.iaeste.entityModels.AdminsEntity;
 import com.iaeste.entityModels.StudentsEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.codec.Base64;
+import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
@@ -12,6 +13,7 @@ import java.security.SecureRandom;
 /**
  * Created by emirk on 31/10/2015.
  */
+@Service
 public class TokenService implements TokenManager{
 
     @Autowired

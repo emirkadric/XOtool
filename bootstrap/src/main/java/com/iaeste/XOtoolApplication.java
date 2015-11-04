@@ -10,4 +10,3 @@ public class XOtoolApplication {
         SpringApplication.run(XOtoolApplication.class, args);
     }
 }
-

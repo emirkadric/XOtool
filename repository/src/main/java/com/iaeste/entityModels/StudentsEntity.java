@@ -225,7 +225,7 @@ public class StudentsEntity implements Serializable {
     }
 
     @OneToOne
-    @Column(name = "fk_rlc_id", nullable = false, insertable = true, updatable = true)
+//    @Column(name = "fk_rlc_id", nullable = false, insertable = true, updatable = true)
     @JoinColumn(name = "fk_rlc_id", referencedColumnName = "pk_rlc_id", nullable = false)
     public RespLocalCommitteeEntity getFkRlcId() {
         return fkRlcId;
@@ -236,7 +236,7 @@ public class StudentsEntity implements Serializable {
     }
 
     @ManyToOne
-    @Column(name = "fk_emergency_contact_id", nullable = false, insertable = true, updatable = true)
+//    @Column(name = "fk_emergency_contact_id", nullable = false, insertable = true, updatable = true)
     @JoinColumn(name = "fk_emergency_contact_id", referencedColumnName = "pk_emergency_contact_id", nullable = false)
     public EmergencyContactsEntity getFkEmergencyContactId() {
         return fkEmergencyContactId;
@@ -247,7 +247,7 @@ public class StudentsEntity implements Serializable {
     }
 
     @ManyToOne
-    @Column(name = "fk_membership_status", nullable = false, insertable = true, updatable = true)
+//    @Column(name = "fk_membership_status", nullable = false, insertable = true, updatable = true)
     @JoinColumn(name = "fk_membership_status", referencedColumnName = "pk_mb_id", nullable = false)
     public MembershipStatusesEntity getFkMembershipStatus() {
         return fkMembershipStatus;
@@ -258,7 +258,7 @@ public class StudentsEntity implements Serializable {
     }
 
     @OneToOne
-    @Column(name = "fk_native_language", nullable = false, insertable = true, updatable = true)
+//    @Column(name = "fk_native_language", nullable = false, insertable = true, updatable = true)
     @JoinColumn(name = "fk_native_language", referencedColumnName = "pk_language_id", nullable = false)
     public LanguagesEntity getFkNativeLanguage() {
         return fkNativeLanguage;
@@ -269,7 +269,7 @@ public class StudentsEntity implements Serializable {
     }
 
     @ManyToOne
-    @Column(name = "fk_education_id", nullable = false, insertable = true, updatable = true)
+//    @Column(name = "fk_education_id", nullable = false, insertable = true, updatable = true)
     @JoinColumn(name = "fk_education_id", referencedColumnName = "pk_edu_id", nullable = false)
     public EducationsEntity getFkEducationId() {
         return fkEducationId;
@@ -280,7 +280,7 @@ public class StudentsEntity implements Serializable {
     }
 
     @ManyToOne
-    @Column(name = "fk_prev_employment_id", nullable = false, insertable = true, updatable = true)
+//    @Column(name = "fk_prev_employment_id", nullable = false, insertable = true, updatable = true)
     @JoinColumn(name = "fk_prev_employment_id", referencedColumnName = "pk_pe_id", nullable = false)
     public PrevEmploymentsEntity getFkPrevEmploymentId() {
         return fkPrevEmploymentId;
@@ -291,7 +291,7 @@ public class StudentsEntity implements Serializable {
     }
 
     @ManyToOne
-    @Column(name = "fk_updated_by_admin", nullable = false, insertable = true, updatable = true)
+//    @Column(name = "fk_updated_by_admin", nullable = false, insertable = true, updatable = true)
     @JoinColumn(name = "fk_updated_by_admin", referencedColumnName = "pk_admin_id", nullable = false)
     public AdminsEntity getFkUpdatedByAdmin() {
         return fkUpdatedByAdmin;
@@ -374,7 +374,7 @@ public class StudentsEntity implements Serializable {
     }
 
     @OneToOne
-    @Column(name = "fk_country_id", nullable = false, insertable = true, updatable = true)
+//    @Column(name = "fk_country_id", nullable = false, insertable = true, updatable = true)
     @JoinColumn(name = "fk_country_id", referencedColumnName = "pk_country_id", nullable = false)
     public CountriesEntity getFkCountryId() {
         return fkCountryId;

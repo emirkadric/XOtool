@@ -22,6 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="bootstrap" />
         <module name="com.iaeste.repo" />
         <module name="controller" />
         <module name="DataAccess" />
@@ -31,6 +32,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bootstrap" target="1.8" />
       <module name="com.iaeste.repo" target="1.8" />
       <module name="controller" target="1.8" />
       <module name="DataAccess" target="1.8" />
