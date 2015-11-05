@@ -11,7 +11,6 @@ import java.io.Serializable;
 public class EmergencyContactsEntity implements Serializable {
     private static final long serialVersionUID = 5659810252830124115L;
     private int pkEmergencyContactId;
-    private int fkCountryId;
     private String firstname;
     private String lastname;
     private String email;
@@ -29,16 +28,6 @@ public class EmergencyContactsEntity implements Serializable {
 
     public void setPkEmergencyContactId(int pkEmergencyContactId) {
         this.pkEmergencyContactId = pkEmergencyContactId;
-    }
-
-    @Basic
-    @Column(name = "fk_country_id", nullable = false, insertable = true, updatable = true)
-    public int getFkCountryId() {
-        return fkCountryId;
-    }
-
-    public void setFkCountryId(int fkCountryId) {
-        this.fkCountryId = fkCountryId;
     }
 
     @Basic
@@ -119,7 +108,6 @@ public class EmergencyContactsEntity implements Serializable {
         EmergencyContactsEntity that = (EmergencyContactsEntity) o;
 
         if (pkEmergencyContactId != that.pkEmergencyContactId) return false;
-        if (fkCountryId != that.fkCountryId) return false;
         if (phone != that.phone) return false;
         if (zip != that.zip) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
@@ -134,7 +122,6 @@ public class EmergencyContactsEntity implements Serializable {
     @Override
     public int hashCode() {
         int result = pkEmergencyContactId;
-        result = 31 * result + fkCountryId;
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);

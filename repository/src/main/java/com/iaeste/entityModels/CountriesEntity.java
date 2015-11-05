@@ -71,15 +71,6 @@ public class CountriesEntity implements Serializable{
     }
 
     @OneToMany(mappedBy = "countriesByFkCountryId")
-    public Collection<EmergencyContactsEntity> getEmergencyContactsesByPkCountryId() {
-        return emergencyContactsesByPkCountryId;
-    }
-
-    public void setEmergencyContactsesByPkCountryId(Collection<EmergencyContactsEntity> emergencyContactsesByPkCountryId) {
-        this.emergencyContactsesByPkCountryId = emergencyContactsesByPkCountryId;
-    }
-
-    @OneToMany(mappedBy = "countriesByFkCountryId")
     public Collection<EmployersEntity> getEmployersesByPkCountryId() {
         return employersesByPkCountryId;
     }

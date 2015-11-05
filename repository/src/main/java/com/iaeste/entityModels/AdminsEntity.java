@@ -13,7 +13,6 @@ public class AdminsEntity implements Serializable{
     private int pkAdminId;
     private String firstname;
     private String lastname;
-    private int fkRlcId;
     private String email;
     private long phone;
     private String username;
@@ -49,16 +48,6 @@ public class AdminsEntity implements Serializable{
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    @Basic
-    @Column(name = "fk_rlc_id", nullable = false, insertable = true, updatable = true)
-    public int getFkRlcId() {
-        return fkRlcId;
-    }
-
-    public void setFkRlcId(int fkRlcId) {
-        this.fkRlcId = fkRlcId;
     }
 
     @Basic
@@ -119,7 +108,6 @@ public class AdminsEntity implements Serializable{
         AdminsEntity that = (AdminsEntity) o;
 
         if (pkAdminId != that.pkAdminId) return false;
-        if (fkRlcId != that.fkRlcId) return false;
         if (phone != that.phone) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
         if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
@@ -136,7 +124,6 @@ public class AdminsEntity implements Serializable{
         int result = pkAdminId;
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
-        result = 31 * result + fkRlcId;
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (int) (phone ^ (phone >>> 32));
         result = 31 * result + (username != null ? username.hashCode() : 0);

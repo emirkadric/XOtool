@@ -15,7 +15,6 @@ public class AccommodationsEntity implements Serializable {
     private int pkAccommId;
     private String provider;
     private int cost;
-    private int fkPayFrequencyId;
     private PayFrequenciesEntity payFrequenciesByFkPayFrequencyId;
     private Collection<JobsEntity> jobsesByPkAccommId;
 
@@ -49,16 +48,6 @@ public class AccommodationsEntity implements Serializable {
         this.cost = cost;
     }
 
-    @Basic
-    @Column(name = "fk_pay_frequency_id", nullable = false, insertable = true, updatable = true)
-    public int getFkPayFrequencyId() {
-        return fkPayFrequencyId;
-    }
-
-    public void setFkPayFrequencyId(int fkPayFrequencyId) {
-        this.fkPayFrequencyId = fkPayFrequencyId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -68,7 +57,6 @@ public class AccommodationsEntity implements Serializable {
 
         if (pkAccommId != that.pkAccommId) return false;
         if (cost != that.cost) return false;
-        if (fkPayFrequencyId != that.fkPayFrequencyId) return false;
         if (provider != null ? !provider.equals(that.provider) : that.provider != null) return false;
 
         return true;
@@ -79,7 +67,6 @@ public class AccommodationsEntity implements Serializable {
         int result = pkAccommId;
         result = 31 * result + (provider != null ? provider.hashCode() : 0);
         result = 31 * result + cost;
-        result = 31 * result + fkPayFrequencyId;
         return result;
     }
 

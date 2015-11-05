@@ -11,8 +11,8 @@ import java.io.Serializable;
 public class StudentsLanguagesEntity implements Serializable {
     private static final long serialVersionUID = -818322242395424032L;
     private int pkStulangsId;
-    private int fk_student_id;
-    private int fk_language_id;
+    private LanguagesEntity languagesByFkLanguageId;
+    private StudentsEntity studentsEntity;
 
     @Id
     @Column(name = "pk_stulangs_id", nullable = false, insertable = true, updatable = true)
@@ -23,7 +23,6 @@ public class StudentsLanguagesEntity implements Serializable {
     public void setPkStulangsId(int pkStulangsId) {
         this.pkStulangsId = pkStulangsId;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -44,5 +43,25 @@ public class StudentsLanguagesEntity implements Serializable {
            return result;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "fk_language_id", referencedColumnName = "pk_language_id", nullable = false)
+    public LanguagesEntity getLanguagesByFkLanguageId() {
+        return languagesByFkLanguageId;
+    }
 
+    public void setLanguagesByFkLanguageId(LanguagesEntity languagesByFkLanguageId) {
+        this.languagesByFkLanguageId = languagesByFkLanguageId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "fk_student_id", referencedColumnName = "student_id_pk", nullable = false)
+    public StudentsEntity getStudentsEntity()
+    {
+        return studentsEntity;
+    }
+
+    public void setStudentsEntity(StudentsEntity se)
+    {
+        this.studentsEntity = se;
+    }
 }

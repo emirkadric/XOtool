@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by emirk on 03/10/2015.
@@ -14,7 +13,6 @@ import java.util.List;
 public class EducationsEntity implements Serializable{
     private static final long serialVersionUID = 8886584961812948959L;
     private int pkEduId;
-    private int fkStudyLevel;
     private String university;
     private String studyField;
     private String status;
@@ -29,7 +27,6 @@ public class EducationsEntity implements Serializable{
     private byte[] studyPlan;
     private byte[] awards;
     private StudyLevelsEntity studyLevelsByFkStudyLevel;
-    private List<StudentsEntity> pk_edu_id;
 
     @Id
     @Column(name = "pk_edu_id", nullable = false, insertable = true, updatable = true)
@@ -39,16 +36,6 @@ public class EducationsEntity implements Serializable{
 
     public void setPkEduId(int pkEduId) {
         this.pkEduId = pkEduId;
-    }
-
-    @Basic
-    @Column(name = "fk_study_level", nullable = false, insertable = true, updatable = true)
-    public int getFkStudyLevel() {
-        return fkStudyLevel;
-    }
-
-    public void setFkStudyLevel(int fkStudyLevel) {
-        this.fkStudyLevel = fkStudyLevel;
     }
 
     @Basic
@@ -189,7 +176,6 @@ public class EducationsEntity implements Serializable{
         EducationsEntity that = (EducationsEntity) o;
 
         if (pkEduId != that.pkEduId) return false;
-        if (fkStudyLevel != that.fkStudyLevel) return false;
         if (completedEcts != that.completedEcts) return false;
         if (totalEcts != that.totalEcts) return false;
         if (university != null ? !university.equals(that.university) : that.university != null) return false;
@@ -211,7 +197,6 @@ public class EducationsEntity implements Serializable{
     @Override
     public int hashCode() {
         int result = pkEduId;
-        result = 31 * result + fkStudyLevel;
         result = 31 * result + (university != null ? university.hashCode() : 0);
         result = 31 * result + (studyField != null ? studyField.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
@@ -238,12 +223,5 @@ public class EducationsEntity implements Serializable{
         this.studyLevelsByFkStudyLevel = studyLevelsByFkStudyLevel;
     }
 
-    @OneToMany(mappedBy = "fkEducationId")
-    public List<StudentsEntity> getPk_edu_id() {
-        return pk_edu_id;
-    }
 
-    public void setPk_edu_id(List<StudentsEntity> pk_edu_id) {
-        this.pk_edu_id = pk_edu_id;
-    }
 }

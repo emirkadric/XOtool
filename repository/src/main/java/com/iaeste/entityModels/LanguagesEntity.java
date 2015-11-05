@@ -2,7 +2,6 @@ package com.iaeste.entityModels;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 /**
  * Created by emirk on 03/10/2015.

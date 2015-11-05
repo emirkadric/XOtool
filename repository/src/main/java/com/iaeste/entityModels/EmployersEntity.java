@@ -19,8 +19,6 @@ public class EmployersEntity implements Serializable {
     private String email;
     private String website;
     private String contactPerson;
-    private int fkRlc;
-    private int fkCountryId;
     private RespLocalCommitteeEntity respLocalCommitteeByFkRlc;
     private CountriesEntity countriesByFkCountryId;
     private Collection<JobsEntity> jobsesByPkEmployerId;
@@ -105,26 +103,6 @@ public class EmployersEntity implements Serializable {
         this.contactPerson = contactPerson;
     }
 
-    @Basic
-    @Column(name = "fk_rlc", nullable = false, insertable = true, updatable = true)
-    public int getFkRlc() {
-        return fkRlc;
-    }
-
-    public void setFkRlc(int fkRlc) {
-        this.fkRlc = fkRlc;
-    }
-
-    @Basic
-    @Column(name = "fk_country_id", nullable = false, insertable = true, updatable = true)
-    public int getFkCountryId() {
-        return fkCountryId;
-    }
-
-    public void setFkCountryId(int fkCountryId) {
-        this.fkCountryId = fkCountryId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -134,8 +112,6 @@ public class EmployersEntity implements Serializable {
 
         if (pkEmployerId != that.pkEmployerId) return false;
         if (zip != that.zip) return false;
-        if (fkRlc != that.fkRlc) return false;
-        if (fkCountryId != that.fkCountryId) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (city != null ? !city.equals(that.city) : that.city != null) return false;
         if (address != null ? !address.equals(that.address) : that.address != null) return false;
@@ -157,8 +133,6 @@ public class EmployersEntity implements Serializable {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (website != null ? website.hashCode() : 0);
         result = 31 * result + (contactPerson != null ? contactPerson.hashCode() : 0);
-        result = 31 * result + fkRlc;
-        result = 31 * result + fkCountryId;
         return result;
     }
 
